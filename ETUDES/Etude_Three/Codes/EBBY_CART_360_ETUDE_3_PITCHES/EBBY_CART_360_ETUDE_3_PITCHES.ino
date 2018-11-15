@@ -218,8 +218,8 @@ void live()
 {
   //IMPLEMENT
   int noteVal = analogRead(NOTE_IN_PIN);
-  
-  if (noteVal < 3) {
+
+  if (noteVal < 10) {
     noTone(BUZZER_PIN);
   } else if (noteVal) {
     tone (BUZZER_PIN, pitcher(noteVal));
@@ -267,10 +267,10 @@ void play()
   // IMPLEMENT
   for (int i = 0; i < counter; i++) {
     if (digitalRead(BUTTON_MODE_PIN)) {
-      chooseMode();
+      break;
     }
     tone (BUZZER_PIN, notes [i], duration);
-    delay (duration/2);
+    delay (duration / 2);
     noTone(BUZZER_PIN);
   }
 }
@@ -290,11 +290,11 @@ void looper()
 
   for (int i = 0; i < counter; i++) {
     if (digitalRead(BUTTON_MODE_PIN)) {
-      chooseMode();
+      break;
     }
     live();
     tone (BUZZER_PIN, notes [(int)random(0, counter)], duration);
-    delay (duration/2);
+    delay (duration / 2);
     noTone(BUZZER_PIN);
   }
 }
@@ -303,25 +303,20 @@ void looper()
    INSTRUCTIONS:
    this function will playback any notes stored in the array that were recorded
    in the previous mode
-   SO: 
-   AND 
-   ALSO: 
-   BE CAREFUL: 
+   SO:
+   AND
+   ALSO:
+   BE CAREFUL:
 **************************************************************************/
-int pitcher(int inputNote){
-  if (inputNote > 199 && inputNote < 205)
-  return (NOTE_C5);
-  
-    if (inputNote > 249 && inputNote < 261)
-  return (NOTE_D5);
-  
-    if (inputNote > 335 && inputNote < 347)
-  return (NOTE_E5);
-  
-    if (inputNote > 505 && inputNote < 513)
-  return (NOTE_F5);
-  
-    if (inputNote > 1019 && inputNote < 1024)
-  return (NOTE_G5);
-  
+int pitcher(int inputNote) {
+  if (inputNote > 199 && inputNote < 205) return (NOTE_C5);
+
+  else if (inputNote > 249 && inputNote < 261) return (NOTE_D5);
+
+  else if (inputNote > 335 && inputNote < 347) return (NOTE_E5);
+
+  else if (inputNote > 505 && inputNote < 513) return (NOTE_F5);
+
+  else if (inputNote > 1019 && inputNote < 1024) return (NOTE_G5);
+
 }
