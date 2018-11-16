@@ -494,7 +494,7 @@ int getPhotoFrequency()
    INSTRUCTIONS:
    this function should compute the running average of the photcell value (returned from the
    getPhotoFrequency() function).
-**************************************************************************/
+********************************-******************************************/
 int getRunningAverage(int rawSenseVal)
 {
   //IMPLEMENT
@@ -544,7 +544,7 @@ void playWithDuration()
       break;
     }
     tone(BUZZER_PIN, notes [i] , durations [i]);
-    colorLED(map(notes [i],500 ,1124, 0, 254));
+    colorLED(map(notes [i],500 ,900, 0, 254));
     delay (durations [i] + smidgen);
     //check if mode button is pressed
 
